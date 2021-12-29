@@ -1,6 +1,7 @@
 [Introduction](#introduction) | [Install](#install-using-pip) | 
 [Default Usage](#default-usage) | 
 [Adjusting # of Significant Figures on Error](#adjusting-significant-figures-on-error)
+ | [Render Latex in Jupyter](#render-latex-in-jupyter)
 # Round Using Error
 ### Introduction
 This package provides opinionated tools for formatting the output of values 
@@ -57,8 +58,4 @@ The output is available as:
 '(1.234\\pm0.241)\\times 10^-3'
 ```
 ####Render Latex in Jupyter
-```
->>> from round_using_error import *
->>> from IPython.display import Math
-
-```
+![latex in Jupyter](rndwitherr_Jupyter_display.png)
