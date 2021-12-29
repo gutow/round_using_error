@@ -17,9 +17,9 @@ The output is available as:
 * text in format `value +/- error`;
 * latex in the form `value \pm error`.
 ### Usage
-####Install using pip
+#### Install using pip
 `pip install -U round_using_error`.
-####Default usage:
+#### Default usage:
 ```
 >>> from round_using_error import *
 >>> rndwitherr(0.001234, 0.000241)
@@ -43,7 +43,7 @@ The output is available as:
 >>> latex_rndwitherr(0.1234, 0.024)
 '0.123\\pm0.024'
 ```
-####Adjusting significant figures on error
+#### Adjusting significant figures on error
 ```
 >>> from round_using_error import *
 >>> latex_rndwitherr(0.1234, 0.024)
@@ -57,5 +57,5 @@ The output is available as:
 >>> latex_rndwitherr(0.001234, 0.000241, errdig = 3)
 '(1.234\\pm0.241)\\times 10^-3'
 ```
-####Render Latex in Jupyter
+#### Render Latex in Jupyter
 ![latex in Jupyter](rndwitherr_Jupyter_display.png)
