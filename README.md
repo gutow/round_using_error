@@ -1,7 +1,9 @@
 [Introduction](#introduction) | [Install](#install-using-pip) | 
 [Default Usage](#default-usage) | 
 [Adjusting # of Significant Figures on Error](#adjusting-significant-figures-on-error)
- | [Render Latex in Jupyter](#render-latex-in-jupyter)
+ | [Render Latex in Jupyter](#render-latex-in-jupyter) | 
+[Comments and Bug Reporting](#issues-or-comments) | 
+[License](#this-software-is-distributed-under-the-gnu-v3-license)
 # Round Using Error
 ### Introduction
 This package provides opinionated tools for formatting the output of values 
@@ -59,3 +61,19 @@ The output is available as:
 ```
 #### Render Latex in Jupyter
 ![latex in Jupyter](rndwitherr_Jupyter_display.png)
+
+#### Issues or Comments
+Ideas, suggestions, bug reports and general comments are welcome . Please
+use the github repository issues tracker:
+[https://github.com/gutow/round_using_error/issues](https://github.com/gutow/round_using_error/issues).
+#### [This software is distributed under the GNU V3 license](https://gnu.org/licenses)
+This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+Copyright - Jonathan Gutow, 2021.
