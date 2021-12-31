@@ -9,7 +9,7 @@ setuptools.setup(
     description="Output numbers +/- error with appropriate rounding.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="",
+    url="https://github.com/gutow/round_using_error",
     author="Jonathan Gutow",
     author_email="gutow@uwosh.edu",
     license="GPL-3.0+",
