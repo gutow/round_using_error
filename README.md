@@ -20,7 +20,7 @@ The output is available as:
 * latex in the form `value \pm error`.
 ### Usage
 #### Install using pip
-`pip install -U round_using_error`. **not yet on pypi.org**
+`pip install -U round_using_error`.
 #### Default usage:
 ```
 >>> from round_using_error import *
