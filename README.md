@@ -60,7 +60,7 @@ The output is available as:
 '(1.234\\pm0.241)\\times 10^-3'
 ```
 #### Render Latex in Jupyter
-![latex in Jupyter](rndwitherr_Jupyter_display.png)
+![latex in Jupyter](https://raw.githubusercontent.com/gutow/round_using_error/master/rndwitherr_Jupyter_display.png)
 
 #### Issues or Comments
 Ideas, suggestions, bug reports and general comments are welcome . Please

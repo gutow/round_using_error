@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
     name="round_using_error",
-    version="0.9.1",
+    version="1.0.0rc1",
     description="Output numbers +/- error with appropriate rounding.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -14,7 +14,6 @@ setuptools.setup(
     author_email="gutow@uwosh.edu",
     license="GPL-3.0+",
     packages=setuptools.find_packages(),
-    package_data={},
     include_package_data=True,
     install_requires=[],
     classifiers=[
