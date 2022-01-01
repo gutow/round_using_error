@@ -98,7 +98,7 @@ def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
     Examples
     ========
     >>> output_rndwitherr(3.53e-2,2.24e-3)
-    '(3.53\\pm0.22)\\times 10^-2'
+    '(3.53\\pm0.22)\\times 10^{-2}'
     >>> output_rndwitherr(3.53e-2,2.24e-3, style = "text")
     '(3.53 +/- 0.22) X 10^-2'
     >>> output_rndwitherr(3.53e-2,2.24e-3, errdig = 1, lowmag=-1, style = "text")
@@ -121,7 +121,7 @@ def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
         lparen = '('
         rparen = ')'
         if style == 'latex':
-            pwrstr = r'\times 10^' + expstr
+            pwrstr = r'\times 10^{' + expstr + '}'
         if style == 'text':
             pwrstr = r' X 10^' + expstr
     return str(r'' + lparen + valstr + pm + errstr + rparen + pwrstr)
@@ -143,9 +143,9 @@ def latex_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     >>> latex_rndwitherr(3.53e-2,2.24e-3, errdig = 1, lowmag=-2)
     '0.035\\pm0.002'
     >>> latex_rndwitherr(3.53e-2,2.24e-3)
-    '(3.53\\pm0.22)\\times 10^-2'
+    '(3.53\\pm0.22)\\times 10^{-2}'
     >>> latex_rndwitherr(1247.325, 1.23)
-    '(1.2473\\pm0.0012)\\times 10^3'
+    '(1.2473\\pm0.0012)\\times 10^{3}'
 
     To view in Jupyter latex output in Jupyter use:
     ```
