@@ -1,7 +1,8 @@
 [Introduction](#introduction) | [Install](#install-using-pip) | 
 [Default Usage](#default-usage) | 
 [Adjusting # of Significant Figures on Error](#adjusting-significant-figures-on-error)
- | [Render Latex in Jupyter](#render-latex-in-jupyter) | 
+ | [Adjusting cutoffs for switch to scientific notation](#adjusting-the-cutoffs-for-switching-to-scientific-notation)
+| [Render Latex in Jupyter](#render-latex-in-jupyter) | 
 [Comments and Bug Reporting](#issues-or-comments) | 
 [License](#this-software-is-distributed-under-the-gnu-v3-license)
 # Round Using Error
@@ -58,6 +59,13 @@ The output is available as:
 '(1.234 +/- 0.241) X 10^-3'
 >>> latex_rndwitherr(0.001234, 0.000241, errdig = 3)
 '(1.234\\pm0.241)\\times 10^{-3}'
+```
+#### Adjusting the cutoffs for switching to scientific notation
+```
+>>> rndwitherr(1247.325, 1.23, errdig = 1, highmag = 3)
+('1247', '1', '')
+>>> rndwitherr(3.53e-2,2.24e-3, errdig = 1, lowmag = -2)
+('0.035', '0.002', '')
 ```
 #### Render Latex in Jupyter
 ![latex in Jupyter](https://raw.githubusercontent.com/gutow/round_using_error/master/rndwitherr_Jupyter_display.png)
