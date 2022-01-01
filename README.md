@@ -37,7 +37,7 @@ The output is available as:
 >>> text_rndwitherr(0.001234, 0.000241)
 '(1.23 +/- 0.24) X 10^-3'
 >>> latex_rndwitherr(0.001234, 0.000241)
-'(1.23\\pm0.24)\\times 10^-3'
+'(1.23\\pm0.24)\\times 10^{-3}'
 >>> rndwitherr(0.1234, 0.024)
 ('0.123', '0.024', '')
 >>> text_rndwitherr(0.1234, 0.024)
@@ -57,7 +57,7 @@ The output is available as:
 >>> text_rndwitherr(0.001234, 0.000241, errdig = 3)
 '(1.234 +/- 0.241) X 10^-3'
 >>> latex_rndwitherr(0.001234, 0.000241, errdig = 3)
-'(1.234\\pm0.241)\\times 10^-3'
+'(1.234\\pm0.241)\\times 10^{-3}'
 ```
 #### Render Latex in Jupyter
 ![latex in Jupyter](https://raw.githubusercontent.com/gutow/round_using_error/master/rndwitherr_Jupyter_display.png)
