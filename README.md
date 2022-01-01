@@ -31,7 +31,7 @@ The output is available as:
 >>> text_rndwitherr(1299.845, 0.124)
 '(1.29985 +/- 0.00012) X 10^3'
 >>> latex_rndwitherr(1299.845, 0.124)
-'(1.29985\\pm0.00012)\\times 10^3'
+'(1.29985\\pm0.00012)\\times 10^{3}'
 >>> rndwitherr(0.001234, 0.000241)
 ('1.23', '0.24', '-3')
 >>> text_rndwitherr(0.001234, 0.000241)
@@ -76,4 +76,4 @@ This program is free software: you can redistribute it and/or modify
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-Copyright - Jonathan Gutow, 2021.
+Copyright - Jonathan Gutow, 2021, 2022.
