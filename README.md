@@ -13,7 +13,8 @@ rounded so that the last digit reported for the value is the same order of
 magnitude as the least significant digit reported on the error. The default 
 is to report the error to two significant figures. The opinionated 
 part is that the output switches automatically from decimal to scientific 
-notation. Scientific notation is used for values < 0.1 and > 1000.
+notation. Scientific notation is used for values < 0.1 and > 1000. Where the
+switch occurs can be changed with optional parameters.
 
 The output is available as:
 * tuple of strings (value, error, power_of_ten);
