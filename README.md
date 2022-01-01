@@ -3,8 +3,8 @@
 [Adjusting # of Significant Figures on Error](#adjusting-significant-figures-on-error)
  | [Adjusting cutoffs for switch to scientific notation](#adjusting-the-cutoffs-for-switching-to-scientific-notation)
 | [Render Latex in Jupyter](#render-latex-in-jupyter) | 
-[Comments and Bug Reporting](#issues-or-comments) | 
-[License](#this-software-is-distributed-under-the-gnu-v3-license)
+[Comments and Bug Reporting](#issues-or-comments) | [Change Log](#change-log)
+ | [License](#this-software-is-distributed-under-the-gnu-v3-license)
 # Round Using Error
 ### Introduction
 This package provides opinionated tools for formatting the output of values 
@@ -75,6 +75,11 @@ The output is available as:
 Ideas, suggestions, bug reports and general comments are welcome . Please
 use the github repository issues tracker:
 [https://github.com/gutow/round_using_error/issues](https://github.com/gutow/round_using_error/issues).
+
+#### Change Log
+* 1.1.0 Increased error checking. Now raises warning for negative error 
+  values. Also fixes an error that occurred with  negative values.
+
 #### [This software is distributed under the GNU V3 license](https://gnu.org/licenses)
 This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

@@ -46,6 +46,16 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     ('3.35', '0.22', '-2')
     >>> rndwitherr(3.53e-2,2.24e-3)
     ('3.53', '0.22', '-2')
+    >>> rndwitherr(83e-4, 0)
+    ('8.300000000000', '0.000000000000', '-3')
+    >>> rndwitherr(-2, 0.00034)
+    ('-2.00000', '0.00034', '')
+    >>> rndwitherr(0, 0.00034)
+    ('0.00000', '0.00034', '')
+    >>> rndwitherr(-2, -0.00034)
+    Traceback (most recent call last):
+      ...
+    ValueError: Errors are expected to be >= 0.
 
     Adjusting the significant digits on errors
     ------------------------------------------
@@ -62,8 +72,16 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     ('0.035', '0.002', '')
     '''
     import math
-    pwroften = math.floor(math.log(value, 10))
-    rndto = int(math.floor(math.log(error, 10) - errdig + 1))
+    pwroften = 0
+    if value != 0:
+        pwroften = math.floor(math.log(math.fabs(value), 10))
+    if error < 0:
+        raise ValueError('Errors are expected to be >= 0.')
+    if error == 0:
+        rndto = int(pwroften - 12) # beyond this run up against 64 bit
+        # precision
+    if error > 0:
+        rndto = int(math.floor(math.log(error, 10) - errdig + 1))
     valscaled = value
     errscaled = error
     pwroftenstr = ''
@@ -105,6 +123,10 @@ def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
     '(3.5 +/- 0.2) X 10^-2'
     >>> output_rndwitherr(3.53e-2,2.24e-3, errdig = 1, lowmag=-2, style = "text")
     '0.035 +/- 0.002'
+    >>> output_rndwitherr(3.53e-2,2.24e-3, errdig = 1, lowmag=-2, style = "string")
+    Traceback (most recent call last):
+      ...
+    ValueError: style parameter must be either "latex" or "string".
 
     '''
     if style not in ('latex', 'text'):
