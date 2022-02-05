@@ -77,6 +77,7 @@ use the github repository issues tracker:
 [https://github.com/gutow/round_using_error/issues](https://github.com/gutow/round_using_error/issues).
 
 #### Change Log
+* 1.1.1 More doctests. Tweaked handling of errors larger than values.
 * 1.1.0 Increased error checking. Now raises warning for negative error 
   values. Also fixes an error that occurred with  negative values.
 

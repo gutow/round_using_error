@@ -52,6 +52,22 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     ('-2.00000', '0.00034', '')
     >>> rndwitherr(0, 0.00034)
     ('0.00000', '0.00034', '')
+    >>> rndwitherr(0, 3452)
+    ('0', '3500', '')
+    >>> rndwitherr(0.011,0.034)
+    ('1', '3', '-2')
+    >>> rndwitherr(0.011,0.34)
+    ('1', '34', '-2')
+    >>> rndwitherr(0.11,0.34)
+    ('0.1', '0.3', '')
+    >>> rndwitherr(1,34)
+    ('1', '34', '')
+    >>> rndwitherr(1,3437)
+    ('1', '3437', '')
+    >>> rndwitherr(12,3437)
+    ('10', '3440', '')
+    >>> rndwitherr(1222,343789)
+    ('1', '344', '3')
     >>> rndwitherr(-2, -0.00034)
     Traceback (most recent call last):
       ...
@@ -81,7 +97,10 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
         rndto = int(pwroften - 12) # beyond this run up against 64 bit
         # precision
     if error > 0:
-        rndto = int(math.floor(math.log(error, 10) - errdig + 1))
+        if error < math.fabs(value) or value == 0:
+            rndto = int(math.floor(math.log(error, 10) - errdig + 1))
+        else:
+            rndto = pwroften
     valscaled = value
     errscaled = error
     pwroftenstr = ''
@@ -92,7 +111,10 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
         pwroftenstr = str(pwroften)
     valscaled = round(valscaled, -rndto)
     errscaled = round(errscaled, -rndto)
-    precisstr = '%.' + str(-rndto) + 'f'
+    if rndto < 0:
+        precisstr = '%.' + str(-rndto) + 'f'
+    else:
+        precisstr = '%.f'
     valuestr = str(precisstr % valscaled)
     errorstr = str(precisstr % errscaled)
     return valuestr, errorstr, pwroftenstr
