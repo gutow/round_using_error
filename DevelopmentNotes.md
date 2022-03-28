@@ -1,4 +1,30 @@
-### Building PyPi package
+[General](#general-notes) | [Make Docs](#constructing-the-documentation) | 
+[Build PyPi Package](#building-pypi-package)|
+## General Notes
+
+## Constructing the Documentation
+
+1. Make sure pdoc is installed and updated in the virtual environment `pip 
+   install -U pdoc`.
+2. The main README is used as the first page of the documentation. However, 
+   the location requires some of the links to the images to be changed. So 
+   a copy of the file needs to be made and edited (will automate if this 
+   becomes standard).
+    * Copy of README.md from the root level to `docs/intro.md`.
+    * In the copy for each relative reference `src = "docs/resources/..."` 
+      remove `docs/` so that they read `src = "resources/..."`.
+    * DO NOT change absolute (full url) paths.
+3. At the root level run pdoc `pdoc 
+--logo https://gutow.github.io/round_using_error/rnd_w_err.svg
+--logo-link https://gutow.github.io/round_using_error/
+--footer-text "round_using_error vX.X.X" --math -html -o docs round_using_error` 
+   where `X.X.X` is the version number.
+4. Edit the created `index.html`, if necessary, to point to an alternate 
+   homepage from the pdoc default.
+
+### Tasks for Documentation
+
+## Building PyPi package
 
 1. Make sure to update the version number in setup.py first.
 1. Install updated  setuptools and twine in the virtual environment:
