@@ -11,8 +11,10 @@ def numbers_rndwitherr(value, error, errdig=2):
     ----------
     value: float
         The value in floating point.
+
     error: float
         The error/uncertainty in floating point.
+
     errdig: int, optional
         The number of digits to keep in the error. The value is rounded to the
         least significant digit kept for the error. (default value = 2).
@@ -21,6 +23,7 @@ def numbers_rndwitherr(value, error, errdig=2):
     -------
     value: float
         The value rounded based on the error.
+
     error: float
         The error/uncertainty rounded to the number of digits requested by
         errdig.
@@ -90,13 +93,17 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     ----------
     value: float
         The value to be rounded.
+
     error: float
         The error in the value to be rounded.
+
     errdig: int, optional
         (default = 2) number of significant figures to keep on the error.
         The value is rounded to the least significant digit in the error.
+
     lowmag: int, optional
         (default = -1) magnitude below which scientific notation is used.
+
     highmag: int, optional
         (default = 2) magnitude above which scientific notation is used.
 
@@ -104,8 +111,10 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     -------
     valuestr: str
         rounded value.
+
     errstr: str
         rounded error.
+
     pwroftenstr: str
         string for scientific notation exponent. Empty string if values
         returned as decimals.
@@ -214,10 +223,15 @@ def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
     Parameters
     ----------
     value: float
+
     error: float
+
     errdig: int, optional, default = 2
+
     lowmag: int, optional, default = -1
+
     highmag: int, optional, default = 2
+
     style: str, optional, default = 'latex', alternative 'text'
 
     Returns
@@ -238,7 +252,7 @@ def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
     >>> output_rndwitherr(3.53e-2,2.24e-3, errdig = 1, lowmag=-2, style = "string")
     Traceback (most recent call last):
       ...
-    ValueError: style parameter must be either "latex" or "string".
+    ValueError: style parameter must be either "latex" or "text".
 
     """
     if style not in ('latex', 'text'):
@@ -269,9 +283,13 @@ def latex_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     Parameters
     ----------
     value: float
+
     error: float
+
     errdig: int, optional, default = 2
+
     lowmag: int, optional, default = -1
+
     highmag: int, optional, default = 2
 
     Returns
@@ -305,9 +323,13 @@ def text_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     Parameters
     ----------
     value: float
+
     error: float
+
     errdig: int, optional, default = 2
+
     lowmag: int, optional, default = -1
+
     highmag: int, optional, default = 2
 
     Returns
