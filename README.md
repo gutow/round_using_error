@@ -3,6 +3,7 @@
 [Adjusting # of Significant Figures on Error](#adjusting-significant-figures-on-error)
  | [Adjusting cutoffs for switch to scientific notation](#adjusting-the-cutoffs-for-switching-to-scientific-notation)
 | [Render Latex in Jupyter](#render-latex-in-jupyter) | 
+[Get Rounded Numbers Instead of Strings](#get-rounded-numbers-for-the-value-and-error) | 
 [Comments and Bug Reporting](#issues-or-comments) | [Change Log](#change-log)
  | [License](#this-software-is-distributed-under-the-gnu-v3-license)
 # Round Using Error
@@ -20,6 +21,8 @@ The output is available as:
 * tuple of strings (value, error, power_of_ten);
 * text in format `value +/- error`;
 * latex in the form `value \pm error`.
+* rounded floating point numbers (value, error)
+
 ### Usage
 #### Install using pip
 `pip install -U round_using_error`.
@@ -71,12 +74,45 @@ The output is available as:
 #### Render Latex in Jupyter
 ![latex in Jupyter](https://raw.githubusercontent.com/gutow/round_using_error/master/rndwitherr_Jupyter_display.png)
 
+#### Get Rounded Numbers for the Value and Error
+It is possible to get floating point numbers rounded as done by this package
+rather than string representations, using the function `numbers_rndwitherr()`.
+However, because of the way floating point numbers are printed, they may not
+display with proper significant figures (see below). Use the 
+functions described above that return strings to guarantee proper
+significant figures.
+
+```
+>>> numbers_rndwitherr(0.002345,0.0072)
+(0.002, 0.007)
+>>> numbers_rndwitherr(2.345864,0.0072)
+(2.3459, 0.0072)
+>>> numbers_rndwitherr(2.345864e-3,0.0072e-2)
+(0.002346, 7.2e-05)
+>>> numbers_rndwitherr(83e-4, 0)
+(0.0083, 0)
+
+Specifying number of error digits
+---------------------------------
+>>> numbers_rndwitherr(1247.325, 1.23, errdig = 3)
+(1247.33, 1.23)
+
+Default floating point display may not give proper significant figures.
+-----------------------------------------------------------------------
+Compare the output of `numbers_rndwitherr` and `rndwitherr`.
+
+>>> numbers_rndwitherr(1247.325, 1.23, errdig = 1) # bad
+(1247.0, 1.0)
+>>> rndwitherr(1247.325, 1.23, errdig = 1, highmag = 3) # good
+('1247', '1', '')
+```
 #### Issues or Comments
 Ideas, suggestions, bug reports and general comments are welcome . Please
 use the github repository issues tracker:
 [https://github.com/gutow/round_using_error/issues](https://github.com/gutow/round_using_error/issues).
 
 #### Change Log
+* 1.2.0 Introduced `numbers_rndwitherr()` function. Readme.md and docs updates.
 * 1.1.1 More doctests. Tweaked handling of errors larger than values.
 * 1.1.0 Increased error checking. Now raises warning for negative error 
   values. Also fixes an error that occurred with  negative values.

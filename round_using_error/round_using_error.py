@@ -1,5 +1,78 @@
+def numbers_rndwitherr(value, error, errdig=2):
+    """Returns rounded floating points for `value` and `error`.
+
+    This function duplicates how numbers are round internally. It is
+    available if you want rounded numbers rather than formatted and properly
+    truncated strings. Be aware that because of the way floating point numbers
+    are printed, this may not dispaly proper significant figures when output.
+    Use the functions that return strings to guarantee good significant figures.
+
+    Parameters
+    ----------
+    value: float
+        The value in floating point.
+    error: float
+        The error/uncertainty in floating point.
+    errdig: int, optional
+        The number of digits to keep in the error. The value is rounded to the
+        least significant digit kept for the error. (default value = 2).
+
+    Returns
+    -------
+    value: float
+        The value rounded based on the error.
+    error: float
+        The error/uncertainty rounded to the number of digits requested by
+        errdig.
+
+    Examples
+    ========
+    Default
+    -------
+    >>> numbers_rndwitherr(0.002345,0.0072)
+    (0.002, 0.007)
+    >>> numbers_rndwitherr(2.345864,0.0072)
+    (2.3459, 0.0072)
+    >>> numbers_rndwitherr(2.345864e-3,0.0072e-2)
+    (0.002346, 7.2e-05)
+    >>> numbers_rndwitherr(83e-4, 0)
+    (0.0083, 0)
+
+    Specifying number of error digits
+    ---------------------------------
+    >>> numbers_rndwitherr(1247.325, 1.23, errdig = 3)
+    (1247.33, 1.23)
+
+    Default floating point display may not give proper significant figures.
+    -----------------------------------------------------------------------
+    Compare the output of `numbers_rndwitherr` and `rndwitherr`.
+
+    >>> numbers_rndwitherr(1247.325, 1.23, errdig = 1) # bad
+    (1247.0, 1.0)
+    >>> rndwitherr(1247.325, 1.23, errdig = 1, highmag = 3) # good
+    ('1247', '1', '')
+    """
+    import math
+    pwroften = 0
+    rndto = 0
+    if value != 0:
+        pwroften = math.floor(math.log(math.fabs(value), 10))
+    if error < 0:
+        raise ValueError('Errors are expected to be >= 0.')
+    if error == 0:
+        rndto = int(pwroften - 12) # beyond this run up against 64 bit
+        # precision
+    if error > 0:
+        if error < math.fabs(value) or value == 0:
+            rndto = int(math.floor(math.log(error, 10) - errdig + 1))
+        else:
+            rndto = pwroften
+    return round(value, -rndto), round(error, -rndto)
+
 def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
-    '''
+    """Return strings that can be used to represent reasonably rounded
+    numbers with errors.
+
     This is similar in functionality to the error rounding function of the
     package [sigfig](https://github.com/drakegroup/sigfig). The difference
     is that it also switches between decimal notaton and scientific
@@ -13,19 +86,29 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     the switch between decimal and scientific notation twice. This also
     avoids having to convert strings to numbers.
 
-    :param float value: is the value to be rounded.
-    :param float error: is the error in the value to be rounded.
-    :param int errdig: (default = 2) number of significant figures to keep on the error.
+    Parameters
+    ----------
+    value: float
+        The value to be rounded.
+    error: float
+        The error in the value to be rounded.
+    errdig: int, optional
+        (default = 2) number of significant figures to keep on the error.
         The value is rounded to the least significant digit in the error.
-    :param int lowmag: (default = -1) magnitude below which scientific
-        notation is used.
-    :param int highmag: (default = 2) magnitude above which scientific
-        notation is used.
+    lowmag: int, optional
+        (default = -1) magnitude below which scientific notation is used.
+    highmag: int, optional
+        (default = 2) magnitude above which scientific notation is used.
 
-    :return string valuestr: rounded value.
-    :return string errstr: rounded error.
-    :return string pwroftenstr: string for scientific notation exponent. Empty string if
-        values returned as decimals.
+    Returns
+    -------
+    valuestr: str
+        rounded value.
+    errstr: str
+        rounded error.
+    pwroftenstr: str
+        string for scientific notation exponent. Empty string if values
+        returned as decimals.
 
     Examples
     ========
@@ -86,7 +169,7 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     ('1247', '1', '')
     >>> rndwitherr(3.53e-2,2.24e-3, errdig = 1, lowmag = -2)
     ('0.035', '0.002', '')
-    '''
+    """
     import math
     pwroften = 0
     if value != 0:
@@ -122,18 +205,25 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
 
 def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
                       style='latex'):
-    r'''
+    """
     This method outputs the results of rndwitherr as a string. Accepts the
     same input as the method `rndwitherr()` and an additional optional
     parameter `style = "latex" or "text"` defining the output style of the
     returned string.
 
-    :param float value:
-    :param float error:
-    :param int errdig: default = 2
-    :param int lowmag: default = -1
-    :param int highmag: default = 2
-    :param string style: default = 'latex', alternative 'text'
+    Parameters
+    ----------
+    value: float
+    error: float
+    errdig: int, optional, default = 2
+    lowmag: int, optional, default = -1
+    highmag: int, optional, default = 2
+    style: str, optional, default = 'latex', alternative 'text'
+
+    Returns
+    -------
+    String representation of the value +/- the error properly rounded and in
+    the format specified by `style`.
 
     Examples
     ========
@@ -150,9 +240,9 @@ def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
       ...
     ValueError: style parameter must be either "latex" or "string".
 
-    '''
+    """
     if style not in ('latex', 'text'):
-        raise ValueError('style parameter must be either "latex" or "string".')
+        raise ValueError('style parameter must be either "latex" or "text".')
     valstr, errstr, expstr = rndwitherr(value, error, errdig, lowmag, highmag)
     pwrstr = ''
     lparen = ''
@@ -171,16 +261,22 @@ def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
     return str(r'' + lparen + valstr + pm + errstr + rparen + pwrstr)
 
 def latex_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
-    r'''
+    """
     This is a convenience function to render the output of `rndwitherr()`
-    as a latex string. Equivalent to a call to `output_rndwitherr() with the
+    as a latex string. Equivalent to a call to `output_rndwitherr()` with the
     style = "latex"`.
-    :param float value:
-    :param float error:
-    :param int errdig: default = 2
-    :param int lowmag: default = -1
-    :param int highmag: default = 2
-    :return str: latex representation
+
+    Parameters
+    ----------
+    value: float
+    error: float
+    errdig: int, optional, default = 2
+    lowmag: int, optional, default = -1
+    highmag: int, optional, default = 2
+
+    Returns
+    -------
+    String for latex representation of rounded value +/- error.
 
     Examples
     ========
@@ -196,22 +292,27 @@ def latex_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     from IPython.display import Math
     Math(latex_rndwitherr(value, error))
     ```
-
-    '''
+    """
     return output_rndwitherr(value, error, errdig, lowmag, highmag,
                              style='latex')
 
 def text_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
-    '''
+    """
     This is a convenience function to render the output of `rndwitherr()`
-    as a text string. Equivalent to a call to `output_rndwitherr() with the
-    style = "text"`. `
-    :param float value:
-    :param float error:
-    :param int errdig: default = 2
-    :param int lowmag: default = -1
-    :param int highmag: default = 2
-    :return: string representation
+    as a text string. Equivalent to a call to `output_rndwitherr()` with the
+    style = "text".
+
+    Parameters
+    ----------
+    value: float
+    error: float
+    errdig: int, optional, default = 2
+    lowmag: int, optional, default = -1
+    highmag: int, optional, default = 2
+
+    Returns
+    -------
+    String representation of rounded value +/- error.
 
     Examples
     ========
@@ -221,6 +322,6 @@ def text_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     '(3.53 +/- 0.22) X 10^-2'
     >>> text_rndwitherr(1247.325, 1.23)
     '(1.2473 +/- 0.0012) X 10^3'
-    '''
+    """
     return output_rndwitherr(value, error, errdig, lowmag, highmag,
                              style='text')

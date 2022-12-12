@@ -1,6 +1,14 @@
-[General](#general-notes) | [Make Docs](#constructing-the-documentation) | 
-[Build PyPi Package](#building-pypi-package)|
+[General](#general-notes) | [Running Tests](#running-tests) | 
+[Make Docs](#constructing-the-documentation) | 
+[Build PyPi Package](#building-pypi-package) |
 ## General Notes
+
+## Running Tests
+
+1. Make sure pytest is installed in the virtual environment
+   `pip install -U pytest`.
+2. Currently all the tests are in the docstrings. Run them with the command
+   `pytest --doctest-modules`.
 
 ## Constructing the Documentation
 
