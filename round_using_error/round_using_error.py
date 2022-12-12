@@ -214,7 +214,7 @@ def rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
 
 def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
                       style='latex'):
-    """
+    r"""
     This method outputs the results of rndwitherr as a string. Accepts the
     same input as the method `rndwitherr()` and an additional optional
     parameter `style = "latex" or "text"` defining the output style of the
@@ -275,7 +275,7 @@ def output_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2,
     return str(r'' + lparen + valstr + pm + errstr + rparen + pwrstr)
 
 def latex_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
-    """
+    r"""
     This is a convenience function to render the output of `rndwitherr()`
     as a latex string. Equivalent to a call to `output_rndwitherr()` with the
     style = "latex"`.

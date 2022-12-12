@@ -306,7 +306,7 @@
 </span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>
 </span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a><span class="k">def</span> <span class="nf">output_rndwitherr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">errdig</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lowmag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">highmag</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 </span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>                      <span class="n">style</span><span class="o">=</span><span class="s1">&#39;latex&#39;</span><span class="p">):</span>
-</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a><span class="sd">    This method outputs the results of rndwitherr as a string. Accepts the</span>
 </span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a><span class="sd">    same input as the method `rndwitherr()` and an additional optional</span>
 </span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a><span class="sd">    parameter `style = &quot;latex&quot; or &quot;text&quot;` defining the output style of the</span>
@@ -367,7 +367,7 @@
 </span><span id="L-275"><a href="#L-275"><span class="linenos">275</span></a>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#39;</span> <span class="o">+</span> <span class="n">lparen</span> <span class="o">+</span> <span class="n">valstr</span> <span class="o">+</span> <span class="n">pm</span> <span class="o">+</span> <span class="n">errstr</span> <span class="o">+</span> <span class="n">rparen</span> <span class="o">+</span> <span class="n">pwrstr</span><span class="p">)</span>
 </span><span id="L-276"><a href="#L-276"><span class="linenos">276</span></a>
 </span><span id="L-277"><a href="#L-277"><span class="linenos">277</span></a><span class="k">def</span> <span class="nf">latex_rndwitherr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">errdig</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lowmag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">highmag</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
-</span><span id="L-278"><a href="#L-278"><span class="linenos">278</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-278"><a href="#L-278"><span class="linenos">278</span></a>    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-279"><a href="#L-279"><span class="linenos">279</span></a><span class="sd">    This is a convenience function to render the output of `rndwitherr()`</span>
 </span><span id="L-280"><a href="#L-280"><span class="linenos">280</span></a><span class="sd">    as a latex string. Equivalent to a call to `output_rndwitherr()` with the</span>
 </span><span id="L-281"><a href="#L-281"><span class="linenos">281</span></a><span class="sd">    style = &quot;latex&quot;`.</span>
@@ -881,7 +881,7 @@ avoids having to convert strings to numbers.</p>
     <a class="headerlink" href="#output_rndwitherr"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="output_rndwitherr-216"><a href="#output_rndwitherr-216"><span class="linenos">216</span></a><span class="k">def</span> <span class="nf">output_rndwitherr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">errdig</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lowmag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">highmag</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 </span><span id="output_rndwitherr-217"><a href="#output_rndwitherr-217"><span class="linenos">217</span></a>                      <span class="n">style</span><span class="o">=</span><span class="s1">&#39;latex&#39;</span><span class="p">):</span>
-</span><span id="output_rndwitherr-218"><a href="#output_rndwitherr-218"><span class="linenos">218</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="output_rndwitherr-218"><a href="#output_rndwitherr-218"><span class="linenos">218</span></a>    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="output_rndwitherr-219"><a href="#output_rndwitherr-219"><span class="linenos">219</span></a><span class="sd">    This method outputs the results of rndwitherr as a string. Accepts the</span>
 </span><span id="output_rndwitherr-220"><a href="#output_rndwitherr-220"><span class="linenos">220</span></a><span class="sd">    same input as the method `rndwitherr()` and an additional optional</span>
 </span><span id="output_rndwitherr-221"><a href="#output_rndwitherr-221"><span class="linenos">221</span></a><span class="sd">    parameter `style = &quot;latex&quot; or &quot;text&quot;` defining the output style of the</span>
@@ -971,7 +971,7 @@ the format specified by <code>style</code>.</p>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">output_rndwitherr</span><span class="p">(</span><span class="mf">3.53e-2</span><span class="p">,</span><span class="mf">2.24e-3</span><span class="p">)</span>
-<span class="go">&#39;(3.53\pm0.22)\times 10^{-2}&#39;</span>
+<span class="go">&#39;(3.53\\pm0.22)\\times 10^{-2}&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">output_rndwitherr</span><span class="p">(</span><span class="mf">3.53e-2</span><span class="p">,</span><span class="mf">2.24e-3</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span><span class="p">)</span>
 <span class="go">&#39;(3.53 +/- 0.22) X 10^-2&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">output_rndwitherr</span><span class="p">(</span><span class="mf">3.53e-2</span><span class="p">,</span><span class="mf">2.24e-3</span><span class="p">,</span> <span class="n">errdig</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lowmag</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span><span class="p">)</span>
@@ -1000,7 +1000,7 @@ the format specified by <code>style</code>.</p>
     </div>
     <a class="headerlink" href="#latex_rndwitherr"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="latex_rndwitherr-278"><a href="#latex_rndwitherr-278"><span class="linenos">278</span></a><span class="k">def</span> <span class="nf">latex_rndwitherr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">errdig</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lowmag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">highmag</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
-</span><span id="latex_rndwitherr-279"><a href="#latex_rndwitherr-279"><span class="linenos">279</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="latex_rndwitherr-279"><a href="#latex_rndwitherr-279"><span class="linenos">279</span></a>    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="latex_rndwitherr-280"><a href="#latex_rndwitherr-280"><span class="linenos">280</span></a><span class="sd">    This is a convenience function to render the output of `rndwitherr()`</span>
 </span><span id="latex_rndwitherr-281"><a href="#latex_rndwitherr-281"><span class="linenos">281</span></a><span class="sd">    as a latex string. Equivalent to a call to `output_rndwitherr()` with the</span>
 </span><span id="latex_rndwitherr-282"><a href="#latex_rndwitherr-282"><span class="linenos">282</span></a><span class="sd">    style = &quot;latex&quot;`.</span>
@@ -1065,11 +1065,11 @@ style = "latex"`.</p>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">latex_rndwitherr</span><span class="p">(</span><span class="mf">3.53e-2</span><span class="p">,</span><span class="mf">2.24e-3</span><span class="p">,</span> <span class="n">errdig</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lowmag</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">&#39;0.035\pm0.002&#39;</span>
+<span class="go">&#39;0.035\\pm0.002&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">latex_rndwitherr</span><span class="p">(</span><span class="mf">3.53e-2</span><span class="p">,</span><span class="mf">2.24e-3</span><span class="p">)</span>
-<span class="go">&#39;(3.53\pm0.22)\times 10^{-2}&#39;</span>
+<span class="go">&#39;(3.53\\pm0.22)\\times 10^{-2}&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">latex_rndwitherr</span><span class="p">(</span><span class="mf">1247.325</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">)</span>
-<span class="go">&#39;(1.2473\pm0.0012)\times 10^{3}&#39;</span>
+<span class="go">&#39;(1.2473\\pm0.0012)\\times 10^{3}&#39;</span>
 </code></pre>
 </div>
 
