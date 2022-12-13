@@ -305,7 +305,7 @@ def latex_rndwitherr(value, error, errdig=2, lowmag = -1, highmag = 2):
     >>> latex_rndwitherr(1247.325, 1.23)
     '(1.2473\\pm0.0012)\\times 10^{3}'
 
-    To view in Jupyter latex output in Jupyter use:
+    To view typeset latex output in Jupyter use:
     ```
     from IPython.display import Math
     Math(latex_rndwitherr(value, error))
